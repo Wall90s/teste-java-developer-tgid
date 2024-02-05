@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -25,12 +24,6 @@ public class Empresa {
     private String cnpj;
 
     private BigDecimal saldo;
-
-    @JsonProperty("taxa_saque")
-    private Float taxaSaque;
-
-    @JsonProperty("taxa_deposito")
-    private Float taxaDeposito;
 
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("empresa")
@@ -69,22 +62,6 @@ public class Empresa {
 
     public void setSaldo(BigDecimal saldo) {
         this.saldo = saldo;
-    }
-
-    public Float getTaxaSaque() {
-        return this.taxaSaque;
-    }
-
-    public void setTaxaSaque(Float taxaSaque) {
-        this.taxaSaque = taxaSaque;
-    }
-
-    public Float getTaxaDeposito() {
-        return this.taxaDeposito;
-    }
-
-    public void setTaxaDeposito(Float taxaDeposito) {
-        this.taxaDeposito = taxaDeposito;
     }
 
     public List<Cliente> getClientes() {
