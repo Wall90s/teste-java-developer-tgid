@@ -28,7 +28,7 @@ public class Cliente {
 
     @ManyToOne
     @JoinColumn(name = "empresa_id")
-    @JsonIgnoreProperties("cliente")
+    @JsonIgnoreProperties("clientes")
     private Empresa empresa;
 
     public Cliente() {
